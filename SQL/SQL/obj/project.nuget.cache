@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "CmS35iBDy8mNVOlKilaf45OYLn5/a1mRVF+YaURksI3tbVBBWF+T42CcW+RN73t4SzCNOKe7TYGs8+jJEIEVQw==",
+  "dgSpecHash": "ArB5rAgp8oj9iVru9JFcy1E0xTrYjuFutk/A/8TalNj1uXnaUyLOjfAwCujLMCLwcWo9j1EY1IGFsFyf5HF9nw==",
   "success": true,
-  "projectFilePath": "/Users/innasukhina/Projects/SQL/SQL/SQL.csproj",
+  "projectFilePath": "/Users/innasukhina/RiderProjects/SQL_Friday/SQL/SQL/SQL.csproj",
   "expectedPackageFiles": [
     "/Users/innasukhina/.nuget/packages/coverlet.collector/3.0.2/coverlet.collector.3.0.2.nupkg.sha512",
     "/Users/innasukhina/.nuget/packages/microsoft.codecoverage/16.9.4/microsoft.codecoverage.16.9.4.nupkg.sha512",

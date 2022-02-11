@@ -6407,11 +6407,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/innasukhina/Projects/SQL/SQL/SQL.csproj",
+      "projectUniqueName": "/Users/innasukhina/RiderProjects/SQL_Friday/SQL/SQL/SQL.csproj",
       "projectName": "SQL",
-      "projectPath": "/Users/innasukhina/Projects/SQL/SQL/SQL.csproj",
+      "projectPath": "/Users/innasukhina/RiderProjects/SQL_Friday/SQL/SQL/SQL.csproj",
       "packagesPath": "/Users/innasukhina/.nuget/packages/",
-      "outputPath": "/Users/innasukhina/Projects/SQL/SQL/obj/",
+      "outputPath": "/Users/innasukhina/RiderProjects/SQL_Friday/SQL/SQL/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/innasukhina/.nuget/NuGet/NuGet.Config"
