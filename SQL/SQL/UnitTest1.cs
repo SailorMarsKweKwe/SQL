@@ -9,6 +9,17 @@ namespace SQL
     public class UnitTest1
     {
         [Fact]
+        public void SimpleTest1()
+        {
+
+            SQLiteConnection westeros = SQL_Helper.OpenConnectionDB(@"Data Source =/Users/innasukhina/Documents/westeros.db");
+            SQLiteCommand cmd = SQL_Helper.ManageDB("SELECT family_name FROM families WHERE family_id= 4", westeros);
+            var actual = cmd.ExecuteScalar();
+            Assert.Equal("Arryn", actual);
+            SQL_Helper.CloseConnectionDB(westeros);
+        }
+        /*
+        [Fact]
         public void Test1()
         {
             String connectionString = @"Data Source=/Users/innasukhina/Documents/qweqwe.db";
@@ -37,5 +48,6 @@ namespace SQL
 
 
         }
+        */
     }
 }
