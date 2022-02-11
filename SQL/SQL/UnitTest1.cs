@@ -18,6 +18,7 @@ namespace SQL
             Assert.Equal("Arryn", actual);
             SQL_Helper.CloseConnectionDB(westeros);
         }
+        
         [Fact]
         public void FamilyIdByHeroNameTest()
         {
@@ -31,7 +32,7 @@ namespace SQL
         }
 
         [Fact]
-        public void HeroKindomByCastleTest()
+        public void HeroKingdomByCastleTest()
         {
 
             SQLiteConnection westeros = SQL_Helper.OpenConnectionDB(@"Data Source =/Users/innasukhina/Documents/westeros.db");
@@ -39,6 +40,19 @@ namespace SQL
                                                     " heroes WHERE castle='Highgarden' AND hero_name= 'Loras Tyrell')", westeros);
             var actual = cmd.ExecuteScalar();
             Assert.Equal("Kingdom of the Reach", actual);
+            SQL_Helper.CloseConnectionDB(westeros);
+        }
+        
+        [Fact]
+        public void FirstVictimByHeroIdTest()
+        {
+
+            SQLiteConnection westeros = SQL_Helper.OpenConnectionDB(@"Data Source =/Users/innasukhina/Documents/westeros.db");
+            SQLiteCommand cmd = SQL_Helper.ManageDB("SELECT first_victim FROM heroes WHERE hero_id=(SELECT hero_id" +
+                                                    " FROM westeros WHERE family_id=(SELECT family_id FROM families WHERE family_name " +
+                                                    "= 'Baratheon' AND castle = 'Storms End') AND kingdom = 'Kingdom of the Stormlands') ", westeros);
+            var actual = cmd.ExecuteScalar();
+            Assert.Equal("Rhaegar Targaryen", actual);
             SQL_Helper.CloseConnectionDB(westeros);
         }
        
