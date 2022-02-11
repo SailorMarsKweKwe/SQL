@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
 using System.Data.SQLite;
 using Xunit;
 
@@ -9,13 +7,15 @@ namespace SQL
     public class UnitTest1
     {
         [Fact]
-        public void SimpleTest1()
+        public void ArmsByCastleTest()
         {
 
             SQLiteConnection westeros = SQL_Helper.OpenConnectionDB(@"Data Source =/Users/innasukhina/Documents/westeros.db");
-            SQLiteCommand cmd = SQL_Helper.ManageDB("SELECT family_name FROM families WHERE family_id= 4", westeros);
+            SQLiteCommand cmd = SQL_Helper.ManageDB("SELECT arms FROM families WHERE castle = (SELECT castle FROM heroes WHERE"+
+                " hero_name = 'Cercei Lannister' AND hero_id = (SELECT hero_id FROM westeros WHERE kingdom = 'Kingdom of the Rock'"+
+                " AND famous_thing = 'Lannister Gold'))", westeros);
             var actual = cmd.ExecuteScalar();
-            Assert.Equal("Arryn", actual);
+            Assert.Equal("The Lion rampant", actual);
             SQL_Helper.CloseConnectionDB(westeros);
         }
         [Fact]
@@ -65,6 +65,5 @@ namespace SQL
             Assert.Equal("Sunspear", actual);
             SQL_Helper.CloseConnectionDB(westeros);
         }
-       
     }
 }
