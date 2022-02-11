@@ -55,6 +55,19 @@ namespace SQL
             Assert.Equal("Rhaegar Targaryen", actual);
             SQL_Helper.CloseConnectionDB(westeros);
         }
+        
+        [Fact]
+        public void CastleByFamilyIdTest()
+        {
+
+            SQLiteConnection westeros = SQL_Helper.OpenConnectionDB(@"Data Source =/Users/innasukhina/Documents/westeros.db");
+            SQLiteCommand cmd = SQL_Helper.ManageDB("SELECT castle FROM families WHERE family_id=(SELECT family_id" +
+                                                    " FROM westeros WHERE famous_thing= 'Dornish wine' AND hero_id=(SELECT hero_id FROM heroes WHERE hero_name"+
+                                                    " = 'Oberyn Martell' AND first_victim = 'knight of Kings Landing ') AND kingdom = 'Principality of Dorne') ", westeros);
+            var actual = cmd.ExecuteScalar();
+            Assert.Equal("Sunspear", actual);
+            SQL_Helper.CloseConnectionDB(westeros);
+        }
        
     }
 }
